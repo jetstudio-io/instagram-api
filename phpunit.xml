@@ -1,0 +1,7 @@
+<phpunit>
+    <testsuites>
+        <testsuite name="instagram">
+            <directory>test/Jetcoder/Instagram</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
