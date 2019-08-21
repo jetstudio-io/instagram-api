@@ -131,7 +131,7 @@ class Client
             }
             $return = [
                 'posts' => $posts,
-                'next_max_id' => $data['next_max_id']
+                'next_max_id' => $data['next_max_id'] ?? 0
             ];
         } else {
             return null;
