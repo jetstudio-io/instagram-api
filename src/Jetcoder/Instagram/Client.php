@@ -129,7 +129,7 @@ class Client
             foreach ($data['data'] as $posData) {
                 $posts[] = PostFactory::createInstanceByData($posData);
             }
-            $return = [
+            return [
                 'posts' => $posts,
                 'next_max_id' => $data['next_max_id'] ?? 0
             ];
