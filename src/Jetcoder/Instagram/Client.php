@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Jetcoder\Instagram;
 
 use GuzzleHttp\Client as HttpClient;
+use GuzzleHttp\Exception\ClientException;
 
 class Client
 {
@@ -158,24 +159,30 @@ class Client
     {
         $sig = $this->generateSig($endpoint, $params);
         $params['sig'] = $sig;
-        $response = $this->httpClient->get($endpoint, ['query' => $params]);
-        if ($response->getStatusCode() == 200) {
-            return json_decode($response->getBody()->getContents(), true);
-        } else {
-            return null;
+        try {
+            $response = $this->httpClient->get($endpoint, ['query' => $params]);
+            if ($response->getStatusCode() == 200) {
+                return json_decode($response->getBody()->getContents(), true);
+            }
+        } catch (ClientException $e) {
+            error_log($e->getMessage(), 0);
         }
+        return null;
     }
 
     protected function post($endpoint, $params): ?array
     {
         $sig = $this->generateSig($endpoint, $params);
         $params['sig'] = $sig;
-        $response = $this->httpClient->post($endpoint, ['form_params' => $params]);
-        if ($response->getStatusCode() == 200) {
-            return json_decode($response->getBody()->getContents(), true);
-        } else {
-            return null;
+        try {
+            $response = $this->httpClient->post($endpoint, ['form_params' => $params]);
+            if ($response->getStatusCode() == 200) {
+                return json_decode($response->getBody()->getContents(), true);
+            }
+        } catch (ClientException $e) {
+            error_log($e->getMessage(), 0);
         }
+        return null;
     }
 
     /**
