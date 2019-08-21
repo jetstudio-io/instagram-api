@@ -167,4 +167,76 @@ abstract class Post
         $this->filter = $filter;
         return $this;
     }
+
+    /**
+     * @return int
+     */
+    public function getComments(): int
+    {
+        return $this->comments;
+    }
+
+    /**
+     * @param int $comments
+     * @return Post
+     */
+    public function setComments(int $comments): self
+    {
+        $this->comments = $comments;
+        return $this;
+    }
+
+    /**
+     * @return DateTimeImmutable
+     */
+    public function getCreatedTime(): DateTimeImmutable
+    {
+        return $this->createdTime;
+    }
+
+    /**
+     * @param DateTimeImmutable $createdTime
+     * @return Post
+     */
+    public function setCreatedTime(DateTimeImmutable $createdTime): self
+    {
+        $this->createdTime = $createdTime;
+        return $this;
+    }
+
+    /**
+     * @return Caption|null
+     */
+    public function getCaption(): ?Caption
+    {
+        return $this->caption;
+    }
+
+    /**
+     * @param Caption|null $caption
+     * @return Post
+     */
+    public function setCaption(?Caption $caption): self
+    {
+        $this->caption = $caption;
+        return $this;
+    }
+
+    /**
+     * @return Location|null
+     */
+    public function getLocation(): ?Location
+    {
+        return $this->location;
+    }
+
+    /**
+     * @param Location|null $location
+     * @return Post
+     */
+    public function setLocation(?Location $location): self
+    {
+        $this->location = $location;
+        return $this;
+    }
 }
