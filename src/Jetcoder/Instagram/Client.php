@@ -59,7 +59,7 @@ class Client
         $this->redirectUrl = $redirectUrl;
 
         $this->httpClient = new HttpClient([
-            'base_uri' => self::INSTAGRAM_DOMAIN . '/' . self::API_VERSION
+            'base_uri' => self::INSTAGRAM_DOMAIN . '/' . self::API_VERSION . '/'
         ]);
     }
 
@@ -114,7 +114,7 @@ class Client
         if (!$this->accessToken) {
             return null;
         }
-        $endpoint = '/users/self/media/recent';
+        $endpoint = 'users/self/media/recent';
         $params = [
             'access_token' => $this->accessToken,
             'limit' => $limit
@@ -142,7 +142,7 @@ class Client
         if (!$this->accessToken) {
             return null;
         }
-        $endpoint = '/users/self';
+        $endpoint = 'users/self';
         $params = [
             'access_token' => $this->accessToken
         ];
