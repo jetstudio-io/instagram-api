@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Jetcoder\Instagram;
 
 use Jetcoder\Instagram\Post\Image;
+use Jetcoder\Instagram\Post\Video;
 
 class PostFactory
 {
