@@ -118,7 +118,7 @@ class Client
         $endpoint = 'users/self/media/recent';
         $params = [
             'access_token' => $this->accessToken,
-            'limit' => $limit
+            'count' => $limit
         ];
         if ($maxId) {
             $params['max_id'] = $maxId;
